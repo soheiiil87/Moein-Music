@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>Moein Player</title>
+  <style>
+    body {
+      background-color: #2e2e2e;
+      color: #00ff66;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #00ff66;
+    }
+    #player {
+      background-color: #444;
+      border-radius: 10px;
+      padding: 20px;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+    button {
+      background-color: #00ff66;
+      color: #2e2e2e;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #00cc55;
+    }
+    #trackList {
+      background-color: #3a3a3a;
+      border: 2px solid #00ff66;
+      border-radius: 10px;
+      padding: 15px;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .track {
+      padding: 8px;
+      cursor: pointer;
+      border-bottom: 1px solid #555;
+      color: #00ff66;
+    }
+    .track:hover {
+      background-color: #00ff66;
+      color: #2e2e2e;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎶Moein Player🎶</h1>
+  <div id="player">
+    <audio id="audio" controls></audio><br>
+    <button onclick="playPrev()">⏮️ آهنگ قبلی</button>
+    <button onclick="playNext()">⏭️ آهنگ بعدی</button>
+  </div>
+
+  <div id="trackList">
+    <h3>لیست آهنگ‌ها:</h3>
+    <div id="list"></div>
+  </div>
+
+  <script>
+    const musicFolder = '/moein-music/mu/';
+    let tracks = [];
+    let currentTrack = 0;
+
+    fetch(musicFolder + 'list.php')
+      .then(res => res.json())
+      .then(data => {
+        tracks = data;
+        if (tracks.length > 0) {
+          renderTrackList();
+          playTrack(currentTrack);
+          document.getElementById('audio').addEventListener('ended', playNext);
+        }
+      });
+
+    function renderTrackList() {
+      const listDiv = document.getElementById('list');
+      listDiv.innerHTML = '';
+      tracks.forEach((track, index) => {
+        const div = document.createElement('div');
+        div.className = 'track';
+        div.textContent = track;
+        div.onclick = () => {
+          currentTrack = index;
+          playTrack(currentTrack);
+        };
+        listDiv.appendChild(div);
+      });
+    }
+
+    function playTrack(index) {
+      const audio = document.getElementById('audio');
+      audio.src = musicFolder + tracks[index];
+      audio.play();
+    }
+
+    function playNext() {
+      currentTrack = (currentTrack + 1) % tracks.length;
+      playTrack(currentTrack);
+    }
+
+    function playPrev() {
+      currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+      playTrack(currentTrack);
+    }
+  </script>
+</body>
+</html>
