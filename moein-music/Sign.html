@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>About</title>
+
+</head>
+
+<body style="background-color: #3a3a3a;text-align: center;">
+
+    <h1 style="color: #00ff66;">ورود</h1>
+    <div style="background-color: #515151;border-radius: 10px;padding: 20px;margin-bottom: 30px;display: inline-block;">
+
+        <a style="color: #00ff66;">User Name : </a>
+        <input type="text" id = "UN">
+        <h1></h1>
+        <a style="color: #00ff66;">Password : </a>
+        <input type="text" id = "PS">
+
+    </div>
+    <h1></h1>
+    <button style="background-color: #00ff66;border-radius: 40px;width: 200px;height: 50px;font-size: large;" onclick="sign()">ورود / ثبت نام</button>
+
+    <h1 id="well" style="color: #00ff66;"></h1>
+        <script>
+        function sign()
+        {
+            un = document.getElementById("UN").value;
+            ps = document.getElementById("PS").value;
+            if (un != "")
+                document.getElementById("well").innerHTML="خوش اومدی " + un;
+            else
+                document.getElementById("well").innerHTML="!!"+"فیلد خالیه";
+        }
+        </script>
+    
+</body>
+
+</html>
