@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Moein Player</title>
@@ -87,32 +87,31 @@
   </style>
 </head>
 <body>
-  <h1>🎶 Moein Player 🎶</h1>
+  <h1>Moein Player</h1>
 
   <div id="trackList">
-    <h3>لیست آهنگ‌ها:</h3>
     <div id="list"></div>
   </div>
 
 
 
   <div id="player">
-    <button onclick="playPrev()">⏮️ قبلی</button>
-    <audio id="audio" controls></audio>
-    <button onclick="playNext()">بعدی ⏭️</button>
+    <button onclick="playPrev()">⏮</button>
+    <audio id="audio" controls style="min-width: 800px;"></audio>
+    <button onclick="playNext()">⏭</button>
   </div>
 
     <div class="nav">
-    <a href="About.html">درباره</a>
+    <a href="About.html">About</a>
     <a style="color: rgb(149, 55, 255);">|</a>
-    <a href="Sign.html">ورود</a>
+    <a href="Sign.html">Sign</a>
     </div>
 
   <script>
     const tracks = [
-      { title: 'به دیدارم بیا - معین', url: 'https://dl.beroosic.ir/music/1403/9/Moein-Be-Didaram.mp3' },
-      { title: 'طلوع - معین', url: 'https://dl.beroosic.ir/music/1404/1/Moein-Tolou.mp3' },
-      { title: 'سفر - معین', url: 'https://dl.beroosic.ir/music/1403/7/Saffar.mp3' }
+      { title: 'Be Didaram Bia', url: 'https://dl.beroosic.ir/music/1403/9/Moein-Be-Didaram.mp3' },
+      { title: 'Tolou', url: 'https://dl.beroosic.ir/music/1404/1/Moein-Tolou.mp3' },
+      { title: 'Safar', url: 'https://dl.beroosic.ir/music/1403/7/Saffar.mp3' }
     ];
 
     let currentTrack = 0;

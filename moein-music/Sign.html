@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 
 <head>
-    <title>SignIn</title>
+    <meta charset="UTF-8">
+    <title>Sign</title>
 
 </head>
 
 <body style="background-color: #3a3a3a;text-align: center;">
 
-    <h1 style="color: #00ff66;">ورود</h1>
-    <div style="background-color: #515151;border-radius: 10px;padding: 20px;margin-bottom: 30px;display: inline-block;">
+    <h1 style="color: #00ff66;">Sign</h1>
+    <div style="background-color: #222;border-radius: 10px;padding: 20px;margin-bottom: 30px;display: inline-block;">
 
         <a style="color: #00ff66;">User Name : </a>
         <input type="text" id = "UN">
@@ -19,7 +20,7 @@
 
     </div>
     <h1></h1>
-    <button style="background-color: #00ff66;border-radius: 40px;width: 200px;height: 50px;font-size: large;" onclick="sign()">ورود / ثبت نام</button>
+    <button style="background-color: #00ff66;border-radius: 40px;width: 200px;height: 50px;font-size: large;" onclick="sign()">Sign In / Up</button>
 
     <h1 id="well" style="color: #00ff66;"></h1>
         <script>
@@ -28,9 +29,9 @@
             un = document.getElementById("UN").value;
             ps = document.getElementById("PS").value;
             if (un != "")
-                document.getElementById("well").innerHTML="خوش اومدی " + un;
+                document.getElementById("well").innerHTML="Wellcome " + un;
             else
-                document.getElementById("well").innerHTML="!!"+"فیلد خالیه";
+                document.getElementById("well").innerHTML="Empty!";
         }
         </script>
     
